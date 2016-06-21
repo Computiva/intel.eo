@@ -1,0 +1,61 @@
+@registrilo_akumulatoro { 00 }
+
+@registrilo_bazo { 01 }
+
+@registrilo_kalkulilo { 02 }
+
+@registrilo_datumo { 03 }
+
+@registrilo_pilo_montrilo { 04 }
+
+@registrilo_bazo_montrilo { 05 }
+
+@registrilo_fonto_indekso { 06 }
+
+@registrilo_destino_indekso { 07 }
+
+@registrilo_8 { 08 }
+
+@registrilo_9 { 09 }
+
+@registrilo_10 { 0A }
+
+@registrilo_11 { 0B }
+
+@registrilo_12 { 0C }
+
+@registrilo_13 { 0D }
+
+@registrilo_14 { 0E }
+
+@registrilo_15 { 0F }
+
+@puŝi registrilo {
+	[ registrilo <= 07 ? [ 50 + registrilo ] ]
+	[ registrilo >= 08 ? 41 [ 50 - 08 + registrilo ] ]
+}
+
+@movi_absoluto destino fonto {
+	[ destino <= 07 ? 48 [ B8 + destino ] ]
+	[ destino >= 08 ? 49 [ B8 - 08 + destino ] ]
+	fonto
+}
+
+@movi destino fonto {
+	[ destino <= 07 ?
+		[ fonto <= 07 ?
+			48 89 [ C0 + destino + [ 08 * fonto ] ]
+		]
+		[ fonto >= 08 ?
+			4C 89 [ C0 + destino + [ 08 * [ fonto - 08 ] ] ]
+		]
+	]
+	[ destino >= 08 ?
+		[ fonto <= 07 ?
+			49 89 [ C0 - 08 + destino + [ 08 * fonto ] ]
+		]
+		[ fonto >= 08 ?
+			4D 89 [ C0 - 08 + destino + [ 08 * [ fonto - 08 ] ] ]
+		]
+	]
+}
