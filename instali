@@ -1,0 +1,4 @@
+#! /bin/bash
+
+mkdir --parents /usr/lib/eo/
+cp kodo/intel.eo /usr/lib/eo/intel.eo
