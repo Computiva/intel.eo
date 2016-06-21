@@ -1,10 +1,10 @@
 @registrilo_akumulatoro { 00 }
 
-@registrilo_bazo { 01 }
+@registrilo_kalkulilo { 01 }
 
-@registrilo_kalkulilo { 02 }
+@registrilo_datumo { 02 }
 
-@registrilo_datumo { 03 }
+@registrilo_bazo { 03 }
 
 @registrilo_pilo_montrilo { 04 }
 
