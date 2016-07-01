@@ -59,3 +59,11 @@
 		]
 	]
 }
+
+@subtrahi registrilo kvanto {
+	[ registrilo <= 07 ? 48 81 [ E8 + registrilo ] ]
+	[ registrilo >= 08 ? 49 81 [ E8 - 08 + registrilo ] ]
+	kvanto
+}
+
+@voki_sistemo { 0F 05 }
