@@ -60,6 +60,18 @@
 	]
 }
 
+@movi_bajto_montrilo montrilo fonto {
+	[ montrilo >= 8 ? 41 ]
+	C6
+	[ [ montrilo = registrilo_bazo_montrilo ] || [ montrilo = registrilo_13 ] ? 45 00 ]
+	[ [ montrilo != registrilo_bazo_montrilo ] && [ montrilo != registrilo_13 ] ?
+		[ montrilo <= 07 ? montrilo ]
+		[ montrilo >= 08 ? [ montrilo - 08 ] ]
+	]
+	[ [ montrilo = registrilo_pilo_montrilo ] || [ montrilo = registrilo_12 ] ? 24 ]
+	fonto
+}
+
 @subtrahi registrilo kvanto {
 	[ registrilo <= 07 ? 48 81 [ E8 + registrilo ] ]
 	[ registrilo >= 08 ? 49 81 [ E8 - 08 + registrilo ] ]
