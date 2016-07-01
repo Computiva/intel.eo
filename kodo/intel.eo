@@ -35,6 +35,16 @@
 	[ registrilo >= 08 ? 41 [ 50 - 08 + registrilo ] ]
 }
 
+@pliigi registrilo {
+	[ registrilo <= 07 ? 48 FF [ C0 + registrilo ] ]
+	[ registrilo >= 08 ? 49 FF [ C0 - 08 + registrilo ] ]
+}
+
+@malpliigi registrilo {
+	[ registrilo <= 07 ? 48 FF [ C8 + registrilo ] ]
+	[ registrilo >= 08 ? 49 FF [ C8 - 08 + registrilo ] ]
+}
+
 @movi_absoluto destino fonto {
 	[ destino <= 07 ? 48 [ B8 + destino ] ]
 	[ destino >= 08 ? 49 [ B8 - 08 + destino ] ]
